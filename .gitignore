@@ -1,0 +1,37 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Neovim generated files
+*.swap
+*.swo
+*.swp
+.session
+.shada
+.netrwhist
+
+# Plugin managers / cached files
+site/
+packer_compiled.lua
+lazy-lock.json
+
+# Docker build cache (if any)
+**/build/
+docker-compose.override.yml
+
+# Logs and temp
+*.log
+*.tmp
+
+# Python (for future plugins)
+__pycache__/
+*.pyc
+*.pyo
+
+# VSCode devcontainer configs (optional)
+.vscode/
+.devcontainer/
+
+# Ignore user run script output (optional)
+run.sh~
+
