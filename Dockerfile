@@ -7,6 +7,7 @@ FROM ubuntu:24.04
 
 # Create user 'devbox' with sudo privileges and no password
 RUN apt-get update && apt-get install -y \
+    libbpf-dev \
     sudo \
     curl \
     wget \
@@ -37,7 +38,7 @@ RUN curl -LO https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-lin
 RUN git clone https://github.com/folke/lazy.nvim.git /home/devbox/.local/share/nvim/site/pack/lazy/start/lazy.nvim
 
 # Copy Neovim config
-COPY --chown=devbox:devbox init.lua /home/devbox/.config/nvim/init.lua
+COPY --chown=devbox:devbox nvim/ /home/devbox/.config/nvim/
 
 # Copy startup script
 COPY --chown=devbox:devbox entrypoint.sh /usr/local/bin/entrypoint.sh
