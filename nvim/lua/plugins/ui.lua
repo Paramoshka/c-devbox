@@ -5,8 +5,24 @@ return {
         lazy = false,
         priority = 1000,
         opts = {
-            style = "night",
-            styles = { comments = { italic = true }, keywords = { italic = false } },
+            style = "moon",
+            -- Italic comments render thin in most terminal fonts; keep everything upright
+            styles = { comments = { italic = false }, keywords = { italic = false } },
+            -- Default palette is low-contrast: lift comments, gutter and selection
+            on_colors = function(c)
+                c.comment = "#7f8bb8"
+                c.fg_gutter = "#545c7e"
+                c.bg_visual = "#33467c"
+            end,
+            on_highlights = function(hl, c)
+                hl.LineNr = { fg = c.fg_gutter }
+                hl.LineNrAbove = { fg = c.fg_gutter }
+                hl.LineNrBelow = { fg = c.fg_gutter }
+                hl.CursorLineNr = { fg = c.orange, bold = true }
+                hl.LspInlayHint = { fg = c.dark5, bg = c.bg_highlight }
+                hl.MatchParen = { fg = c.orange, bold = true, underline = true }
+                hl.Whitespace = { fg = c.bg_highlight }
+            end,
         },
         config = function(_, opts)
             require("tokyonight").setup(opts)
