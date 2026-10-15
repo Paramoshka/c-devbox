@@ -14,6 +14,7 @@ Thumbs.db
 site/
 packer_compiled.lua
 lazy-lock.json
+!nvim/lazy-lock.json
 
 # Docker build cache (if any)
 **/build/
